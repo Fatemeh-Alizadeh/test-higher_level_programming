@@ -33,7 +33,7 @@ class requestHendler(BaseHTTPRequestHandler):
             self.send_response(404)
             self.send_header('Content-type', 'application/json')
             self.end_headers()
-            dic = {"status": "404 Not Found", "message": "Endpoint not found."}
+            dic = {"message": "Endpoint not found."}
             self.wfile.write(json.dumps(dic).encode())
 
 
