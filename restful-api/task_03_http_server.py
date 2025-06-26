@@ -31,10 +31,9 @@ class requestHendler(BaseHTTPRequestHandler):
 
         else:
             self.send_response(404)
-            self.send_header('Content-type', 'application/json')
+            self.send_header('Content-type', 'text/html')
             self.end_headers()
-            dic = {"message": "Endpoint not found."}
-            self.wfile.write(json.dumps(dic).encode())
+            self.wfile.write("Endpoint not found.".encode('utf-8'))
 
 
 server = HTTPServer(('', 8000), requestHendler)
