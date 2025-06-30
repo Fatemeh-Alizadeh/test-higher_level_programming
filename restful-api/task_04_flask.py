@@ -26,20 +26,22 @@ def get_user(username):
 
 @app.route('/add_user', methods=['POST'])
 def add_user():
-    data = request.get_json()
-    username = data.get('username')
-    if not username or username in users:
+    user = request.get_json()
+    username = user.get('username')
+    if not username:
         return jsonify({"error": "Username is required"})
 
-    users[username] = {
+    user_obj = {
+        "username": username,
         "name": data.get("name"),
         "age": data.get("age"),
-        "city": data.get("city"),
+        "city": data.get("city")
     }
+    users[username] = user_obj
 
     return jsonify({
-        "message": "User added successfully",
-        "user": users[username]
+        "message": "User added",
+        "user": user_obj
     })
 
 
