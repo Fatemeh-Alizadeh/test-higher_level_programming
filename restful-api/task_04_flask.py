@@ -44,8 +44,5 @@ def add_user():
         "user": user_obj
     })
 
-
-
-
 if __name__ == "__main__":
     app.run()
