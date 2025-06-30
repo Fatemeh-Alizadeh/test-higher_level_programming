@@ -25,7 +25,7 @@ def verify_password(username, password):
     if user and check_password_hash(user["password"], password):
         return username
 
-@app.route('/basic-protected')
+@app.route('/basic-protected', methods=['GET'])
 @auth.login_required
 def basic_protected():
     return "Basic Auth: Access Granted"
@@ -33,7 +33,6 @@ def basic_protected():
 @app.route('/login', methods=['POST'])
 def login():
     data = request.get_json()
-    print(data)
     username = data.get('username')
     password = data.get('password')
 
