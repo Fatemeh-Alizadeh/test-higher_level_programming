@@ -12,7 +12,7 @@ def home():
 def data():
     return jsonify(list(users.keys()))
 
-@app.route('/statue', methods=['GET'])
+@app.route('/status', methods=['GET'])
 def statue():
     return "OK"
 
