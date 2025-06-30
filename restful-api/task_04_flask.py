@@ -2,7 +2,7 @@ from flask import Flask, jsonify, request
 
 app = Flask(__name__)
 
-users = {}
+users = {"jane": {"username": "jane", "name": "Jane", "age": 28, "city": "Los Angeles"}, "john": {"username": "john", "name": "John", "age": 30, "city": "New York"}}
 
 @app.route('/')
 def home():
@@ -10,7 +10,7 @@ def home():
 
 @app.route('/data', methods=['GET'])
 def data():
-    return jsonify(users)
+    return jsonify(list(users.keys()))
 
 @app.route('/statue', methods=['GET'])
 def statue():
@@ -28,6 +28,8 @@ def get_user(username):
 def add_user():
     data = request.get_json()
     username = data.get('username')
+    if not username or username in users:
+        return jsonify({"error": "Username is required"})
 
     users[username] = {
         "name": data.get("name"),
@@ -44,4 +46,4 @@ def add_user():
 
 
 if __name__ == "__main__":
-    app.run()
+    app.run(port=8000)
