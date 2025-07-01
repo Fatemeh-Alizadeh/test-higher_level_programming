@@ -22,7 +22,7 @@ def generate_invitations(template, attendees):
         for key in ['name', 'event_title', 'event_date', 'event_location']:
             value = attendee[key]
             if value is None:
-                value = 'N/A'
+                value = f'{key}:N/A'
             invitation = invitation.replace(f"{{{key}}}", str(value))
 
         fileName = f'output_{i}.txt'
