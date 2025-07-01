@@ -62,13 +62,13 @@ def products():
     elif source == 'csv':
         product_list = read_csv()
     else:
-        return render_template('product_display.html', error="Wrong source"),400
+        return render_template('product_display.html', error="Wrong source"),200
 
     if product_id:
         filtered = [p for p in product_list if int(p['id']) == product_id]
         print(product_list)
         if not filtered:
-            return render_template('product_display.html', error="Product not found"), 404
+            return render_template('product_display.html', error="Product not found"), 200
         product_list = filtered
 
 
