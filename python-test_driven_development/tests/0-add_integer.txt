@@ -10,6 +10,10 @@
 98
 >>> add_integer(10.8, 2.9)
 12
+>>> add_integer("85", 2)
+Traceback (most recent call last):
+    ...
+TypeError: a must be an integer
 >>> add_integer(None, 2.9)
 Traceback (most recent call last):
     ...
