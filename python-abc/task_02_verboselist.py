@@ -27,8 +27,8 @@ class VerboseList(list):
         """
         Removed [{item}] from the list.
         """
-        super().remove(item)
         print(f"Removed [{item}] from the list.")
+        super().remove(item)
 
     def pop(self, index=-1):
         """
