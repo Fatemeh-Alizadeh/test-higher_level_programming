@@ -34,7 +34,7 @@ class Circle(Shape):
         """
         Compute the area of the shape.
         """
-        return (math.pi * self.radius) ** 2
+        return math.pi * self.radius ** 2
 
     def perimeter(self):
         """
@@ -72,4 +72,3 @@ def shape_info(shape):
     """
     print("Area:", shape.area())
     print("Perimeter:", shape.perimeter())
-
