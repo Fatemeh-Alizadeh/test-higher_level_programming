@@ -15,7 +15,7 @@ def text_indentation(text):
            TypeError: If text is not a string.
        """
     if not isinstance(text, str):
-        raise TypeError("Text must be a string")
+        raise TypeError("text must be a string")
 
     start = 0
     for i in range(len(text)):
@@ -28,4 +28,3 @@ def text_indentation(text):
 
     if start < len(text):
         print(text[start:].strip())
-
