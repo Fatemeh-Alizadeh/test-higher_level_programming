@@ -1,4 +1,8 @@
 #!/usr/bin/env python3
+"""
+A custom list class that prints messages whenever items are added or removed.
+"""
+
 
 class VerboseList(list):
     """
