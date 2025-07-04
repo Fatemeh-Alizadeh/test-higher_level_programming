@@ -16,4 +16,4 @@ def to_json_string(my_obj):
     Returns:
         str: The JSON string representation of the object.
     """
-    return json.dump(my_obj)
+    return json.dumps(my_obj)
