@@ -23,4 +23,5 @@ def pascal_triangle(n):
             if row_num > 0:
                 row.append(1)
         triangle.append(row)
+
     return triangle
