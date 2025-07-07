@@ -6,8 +6,11 @@ Base class for managing id attribute across all future classes.
 
 class Base:
     """Base class for managing id attribute across all future classes."""
+
     __nb_objects = 0
+
     def __init__(self, id=None):
+
         """Initialize the Base instance with an id.
 
         Args:
