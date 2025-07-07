@@ -1,3 +1,4 @@
 #!/bin/bash
-status=$(curl -s -w "\n%{http_code}" "$1" | tee /tmp/body | tail -n1)
-[ "$status" = "200" ] && sed '$d' /tmp/body
+# Perform the request
+status=$(curl -s -o /dev/null -w "%{http_code}" "$url")
+[ "$status" -eq 200 ] && curl -s "$url"
