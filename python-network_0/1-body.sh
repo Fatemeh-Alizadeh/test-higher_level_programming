@@ -1,4 +1,4 @@
 #!/bin/bash
 # Perform the request
-response=$(curl -s -w "\n%{http_code}" "$1")
-[ "$(echo "$response" | tail -n1)" = "200" ] && echo "$response" | sed '$d'
+status=$(curl -s -w "\n%{http_code}" "$1" | tee /tmp/body | tail -n1)
+[ "$status" = "200" ] && sed '$d' /tmp/body
