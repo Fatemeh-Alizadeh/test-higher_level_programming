@@ -41,7 +41,7 @@ def deserialize_from_xml(filename):
             if text is None:
                 result[child.tag] = None
             elif text.isdigit():
-                result[child.tag] = int(text)
+                result[child.tag] = text
             else:
                 try:
                     result[child.tag] = float(text)
@@ -51,4 +51,5 @@ def deserialize_from_xml(filename):
     except Exception as e:
         print(f"Error reading XML: {e}")
         return {}
+
 
