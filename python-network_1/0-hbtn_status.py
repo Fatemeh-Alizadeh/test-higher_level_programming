@@ -1,5 +1,11 @@
 #!/usr/bin/python3
+"""
+This module fetches https://intranet.hbtn.io/status
+"""
+
+
 import urllib.request
+
 
 url = 'https://intranet.hbtn.io/status'
 with urllib.request.urlopen(url) as response:
