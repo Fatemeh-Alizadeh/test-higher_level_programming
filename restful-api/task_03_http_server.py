@@ -35,7 +35,6 @@ class requestHendler(BaseHTTPRequestHandler):
             self.send_header('Content-type', 'text/html')
             self.end_headers()
             error_message = {"error": "Endpoint not found"}
-            self.send_error(404, "Endpoint not found")
             self.wfile.write(json.dumps(error_message).encode('utf-8'))
 
 
