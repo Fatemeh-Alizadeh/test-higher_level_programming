@@ -34,3 +34,9 @@ class requestHendler(BaseHTTPRequestHandler):
             self.send_header('Content-type', 'text/html')
             self.end_headers()
             self.send_response(404, "Endpoint not found"),404
+
+
+server = HTTPServer(('', 8000), requestHendler)
+print('Server running on port 8000')
+server.serve_forever()
+server.server_close()
