@@ -41,7 +41,6 @@ class Rectangle(Base):
             if i < len(attributes):
                 setattr(self, attributes[i], arg)
 
-
     @property
     def width(self):
         """Get the width of the rectangle."""
