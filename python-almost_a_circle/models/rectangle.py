@@ -27,6 +27,11 @@ class Rectangle(Base):
         self.x = x
         self.y = y
 
+    def __str__(self):
+        """overriding the __str__ method """
+        return "[Rectangle] ({}) {}/{} - {}/{}".format(
+            self.id,self.x, self.y, self.width, self.height)
+
     @property
     def width(self):
         """Get the width of the rectangle."""
