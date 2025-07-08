@@ -32,14 +32,18 @@ class Rectangle(Base):
         return "[Rectangle] ({}) {}/{} - {}/{}".format(
             self.id, self.x, self.y, self.width, self.height)
 
-    def update(self, *args):
+    def update(self, *args, **kwargs):
         """
         Update attributes of the Rectangle using positional arguments.
         """
         attributes = ["id", "width", "height", "x", "y"]
-        for i, arg in enumerate(args):
-            if i < len(attributes):
-                setattr(self, attributes[i], arg)
+        if args and len(args) > 0:
+            for i, arg in enumerate(args):
+                if i < len(attributes):
+                    setattr(self, attributes[i], arg)
+        else:
+            for key,value in kwargs.items():
+                setattr(self, key, value)
 
     @property
     def width(self):
