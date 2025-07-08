@@ -42,7 +42,7 @@ class Rectangle(Base):
                 if i < len(attributes):
                     setattr(self, attributes[i], arg)
         else:
-            for key,value in kwargs.items():
+            for key, value in kwargs.items():
                 setattr(self, key, value)
 
     @property
