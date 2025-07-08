@@ -32,6 +32,16 @@ class Rectangle(Base):
         return "[Rectangle] ({}) {}/{} - {}/{}".format(
             self.id, self.x, self.y, self.width, self.height)
 
+    def update(self, *args):
+        """
+        Update attributes of the Rectangle using positional arguments.
+        """
+        attributes = ["id", "width", "height", "x", "y"]
+        for i, arg in enumerate(args):
+            if i < len(attributes):
+                setattr(self, attributes[i], arg)
+
+
     @property
     def width(self):
         """Get the width of the rectangle."""
