@@ -81,5 +81,3 @@ class Base:
                 json_str = f.read()
                 list_dicts = cls.from_json_string(json_str)
                 return [cls.create(**d) for d in list_dicts]
-
-
