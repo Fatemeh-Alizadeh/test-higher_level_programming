@@ -42,6 +42,6 @@ class Base:
         else:
             dict_list = [obj.to_dictionary() for obj in list_objs]
 
-        json_string = cls.to_json_string(dict_list)
-        with open(filename, 'w') as f:
-            return f.write(json_string)
+            json_string = cls.to_json_string(dict_list)
+            with open(filename, 'w') as f:
+                return f.write(json_string)
