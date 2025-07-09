@@ -3,6 +3,7 @@
 Base class for managing id attribute across all future classes.
 """
 import json
+import os
 
 
 class Base:
@@ -68,3 +69,17 @@ class Base:
         if dummy:
             dummy.update(**dictionary)
         return dummy
+
+    @classmethod
+    def load_from_file(cls):
+        """Load a JSON string into a Python object."""
+        filename = f"{cls.__name__}.json"
+        if not os.path.exists(filename):
+            return []
+        else:
+            with open(filename, 'r', encoding='utf-8') as f:
+                json_str = f.read()
+                list_dicts = cls.from_json_string(json_str)
+                return [cls.create(**d) for d in list_dicts]
+
+
