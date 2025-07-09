@@ -22,10 +22,10 @@ class Rectangle(Base):
             id (int, optional): The ID of the instance.
         """
         super().__init__(id)
-        self.width = width
-        self.height = height
-        self.x = x
-        self.y = y
+        self.__width = width
+        self.__height = height
+        self.__x = x
+        self.__y = y
 
     def __str__(self):
         """overriding the __str__ method """
@@ -141,6 +141,10 @@ class Rectangle(Base):
 
     def to_dictionary(self):
         """Returns dictionary representation of the Rectangle instance."""
-        return self.__dict__
-
-
+        return {
+            'id': self.id,
+            'width': self.width,
+            'height': self.height,
+            'x': self.x,
+            'y': self.y
+        }
