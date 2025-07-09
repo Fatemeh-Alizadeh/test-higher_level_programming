@@ -45,3 +45,11 @@ class Base:
         json_string = cls.to_json_string(dict_list)
         with open(filename, 'w') as f:
             return f.write(json_string)
+
+    @staticmethod
+    def from_json_string(json_string):
+        """Parse a JSON string into a Python object."""
+        if json_string is None or len(json_string) == 0:
+            return []
+        else:
+            return json.loads(json_string)
