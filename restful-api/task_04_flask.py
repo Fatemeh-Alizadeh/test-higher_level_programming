@@ -18,31 +18,25 @@ def statue():
 
 @app.route('/users/<username>', methods=['GET'])
 def get_user(username):
-    try:
-        user = users.get(username)
+    user = users.get(username)
+    if user:
         return jsonify(user)
-    except Exception as e:
-        return jsonify({"error": "User not found"})
+    return jsonify({"error": "User not found"}), 404
 
 
 @app.route('/add_user', methods=['POST'])
 def add_user():
-    try:
-        user = request.get_json()
-        username = user.get('username')
-        user_obj = {
-        "username": username,
-        "name": data.get("name"),
-        "age": data.get("age"),
-        "city": data.get("city")
-         }
-        users[username] = user_obj
-        return jsonify({
+    user = request.get_json()
+
+    if not user or 'username' not in user:
+        return jsonify({"error": "Username is required"}), 400
+
+    username = user['username']
+    users[username] = user
+    return jsonify({
         "message": "User added",
-        "user": user_obj
-         })
-    except Exception as e:
-        return jsonify({"error": "Username is required"})
+        "user": user
+    }), 201
 
 
 if __name__ == "__main__":
